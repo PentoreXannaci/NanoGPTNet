@@ -18,13 +18,13 @@ jobs:
         dotnet-version: '8.x'
 
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore NanoGPTNet/NanoGPTNet.csproj
 
     - name: Build the project
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build NanoGPTNet/NanoGPTNet.csproj --configuration Release --no-restore
 
     - name: Pack the project
-      run: dotnet pack --configuration Release --no-build --output ./nupkg
+      run: dotnet pack NanoGPTNet/NanoGPTNet.csproj --configuration Release --no-build --output ./nupkg
 
     - name: Publish to NuGet
       env:

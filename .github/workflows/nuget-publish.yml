@@ -1,0 +1,32 @@
+name: Publish NuGet Package
+
+# This workflow can only be triggered manually via the "Run workflow" button
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '8.x'
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build the project
+      run: dotnet build --configuration Release --no-restore
+
+    - name: Pack the project
+      run: dotnet pack --configuration Release --no-build --output ./nupkg
+
+    - name: Publish to NuGet
+      env:
+        NUGET_API: ${{ secrets.NUGET_API }}
+      run: dotnet nuget push ./nupkg/*.nupkg --api-key $NUGET_API --source https://api.nuget.org/v3/index.json

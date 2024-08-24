@@ -4,6 +4,19 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+	  <PackageId>NanoGPTNet</PackageId>
+	  <Version>0.0.1</Version>
+	  <Authors>PentoreXannaci</Authors>
+	  <Product>NanoGPTNet</Product>
+	  <Description>A C# wrapper for the NanoGPT API</Description>
+	  <PackageTags>GPT, AI, NanoGPT, C#</PackageTags>
+	  <RepositoryUrl>https://github.com/PentoreXannaci/NanoGPTNet</RepositoryUrl>
+	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
+	  <PackageProjectUrl>https://github.com/PentoreXannaci/NanoGPTNet</PackageProjectUrl>
+	  <PackageReleaseNotes>Initial Release</PackageReleaseNotes>
+	  <Copyright>Copyright © 2024 PentoreXannaci</Copyright>
   </PropertyGroup>
 
   <ItemGroup>

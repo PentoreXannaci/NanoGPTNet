@@ -2,7 +2,7 @@
 
 namespace NanoGPTNet.Models.Request;
 
-public class Base(string prompt, string model)
+public class RequestBase(string prompt, string model)
 {
   [JsonProperty("prompt")]
   public string Prompt { get; set; } = prompt;

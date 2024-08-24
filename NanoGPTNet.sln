@@ -5,7 +5,7 @@ VisualStudioVersion = 17.11.35219.272
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NanoGPTNet", "NanoGPTNet\NanoGPTNet.csproj", "{8E403C1E-85DC-4345-880B-124006E48DCD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NanoGPTNet.Example", "NanoGPTNet.Test\NanoGPTNet.Example.csproj", "{B7A24097-24C0-4429-BB5B-49E3D592D62F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NanoGPTNet.Example", "NanoGPTNet.Example\NanoGPTNet.Example.csproj", "{B7A24097-24C0-4429-BB5B-49E3D592D62F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

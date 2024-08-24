@@ -2,7 +2,7 @@
 
 namespace NanoGPTNet.Models.Request;
 
-public class ImageRequest(string prompt, string model, int width, int height, int amount = 1, int batchSize = 1) : Base(prompt, model)
+public class ImageRequest(string prompt, string model, int width, int height, int amount = 1, int batchSize = 1) : RequestBase(prompt, model)
 {
   [JsonProperty("width")]
   public int Width { get; set; } = width;

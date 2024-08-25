@@ -85,17 +85,7 @@ public class NanoGPT
       return (T)(object)new ChatResponse(message, nanoResponse);
     }
 
-    if (typeof(T) == typeof(ImageResponse))
-    {
-      return JsonConvert.DeserializeObject<T>(content) ?? throw new InvalidOperationException("invalid image response JSON.");
-    }
-
-    if (typeof(T) == typeof(BalanceResponse))
-    {
-      return JsonConvert.DeserializeObject<T>(content) ?? throw new InvalidOperationException("invalid balance response JSON.");
-    }
-
-    throw new NotSupportedException();
+    return JsonConvert.DeserializeObject<T>(content) ?? throw new InvalidOperationException($"could not cast to type: {typeof(T)}, content: {content}");
   }
 
   private async Task<T> GetRequestAsync<T>(string url)

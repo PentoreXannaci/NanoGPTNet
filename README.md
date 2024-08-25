@@ -3,6 +3,8 @@
 `NanoGPTNet` is a .NET library that provides a simple interface to interact with the NanoGPT API.
 * NEEDS ALOT OF TESTING, THE NANOGPT API IS NOT DOCUMENTED!
 
+Feel free to join the NanoGPT Discord server if you have any questions: https://discord.gg/fNPsdWa4uA
+
 ## Features
 
 - **Chat Interactions**: Communicate with models like ChatGPT, Gemini, Llama etc...

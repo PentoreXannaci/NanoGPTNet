@@ -17,7 +17,7 @@ dotnet add package NanoGPTNet
 ```
 
 ## Usage
-Check out the NanoGPTNet.Example project.
+Check out the [NanoGPTNet.Example](https://github.com/PentoreXannaci/NanoGPTNet/blob/master/NanoGPTNet.Example/Program.cs) project.
 
 ## Contributing
 

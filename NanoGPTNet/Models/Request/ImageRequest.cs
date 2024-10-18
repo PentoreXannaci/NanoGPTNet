@@ -2,17 +2,14 @@
 
 namespace NanoGPTNet.Models.Request;
 
-public class ImageRequest(string prompt, string model, int width, int height, int amount = 1, int batchSize = 1) : RequestBase(prompt, model)
+public class ImageRequest(string prompt, string model) : RequestBase(prompt, model)
 {
-  [JsonProperty("width")]
-  public int Width { get; set; } = width;
-  
-  [JsonProperty("height")]
-  public int Height { get; set; } = height;
+  [JsonExtensionData]
+  public Dictionary<string, object?> AdditionalProperties { get; set; } = [];
 
-  [JsonProperty("nImages")]
-  public int Amount { get; set; } = amount;
-
-  [JsonProperty("batchSize")]
-  public int BatchSize { get; set; } = batchSize;
+  public object? this[string key]
+  {
+    get => AdditionalProperties.TryGetValue(key, out object? value) ? value : null;
+    set => AdditionalProperties[key] = value;
+  }
 }

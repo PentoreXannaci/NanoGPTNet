@@ -21,26 +21,31 @@ await Task.Delay(250);
 #region chat
 
 var chatGPT = await gpt.ChatAsync(new ChatRequest("Hey GPT whats up?", "chatgpt-4o-latest"));
-Console.WriteLine("     Message: " + chatGPT.Message);
-Console.WriteLine(" InputTokens: " + chatGPT.NanoGPT.InputTokens);
-Console.WriteLine("OutputTokens: " + chatGPT.NanoGPT.OutputTokens);
-Console.WriteLine("    NanoCost: " + chatGPT.NanoGPT.NanoCost);
+Console.WriteLine("      Message: " + chatGPT.Message);
+Console.WriteLine("  InputTokens: " + chatGPT.NanoGPT.InputTokens);
+Console.WriteLine(" OutputTokens: " + chatGPT.NanoGPT.OutputTokens);
+Console.WriteLine("         Cost: " + chatGPT.NanoGPT.Cost);
+Console.WriteLine("PaymentSource: " + chatGPT.NanoGPT.PaymentSource);
+
 Console.WriteLine("\n-------------------------------------------\n");
 await Task.Delay(250);
 
-var chatGemini = await gpt.ChatAsync(new ChatRequest("Hey Gemini whats up?", "gemini-1.5-pro-exp"));
-Console.WriteLine("     Message: " + chatGemini.Message);
-Console.WriteLine(" InputTokens: " + chatGemini.NanoGPT.InputTokens);
-Console.WriteLine("OutputTokens: " + chatGemini.NanoGPT.OutputTokens);
-Console.WriteLine("    NanoCost: " + chatGemini.NanoGPT.NanoCost);
+var chatGemini = await gpt.ChatAsync(new ChatRequest("Hey Gemini whats up?", "gemini-1.5-pro-001"));
+Console.WriteLine("      Message: " + chatGemini.Message);
+Console.WriteLine("  InputTokens: " + chatGemini.NanoGPT.InputTokens);
+Console.WriteLine(" OutputTokens: " + chatGemini.NanoGPT.OutputTokens);
+Console.WriteLine("         Cost: " + chatGemini.NanoGPT.Cost);
+Console.WriteLine("PaymentSource: " + chatGemini.NanoGPT.PaymentSource);
+
 Console.WriteLine("\n-------------------------------------------\n");
 await Task.Delay(250);
 
 var chatLama = await gpt.ChatAsync(new ChatRequest("Hey Lama whats up?", "llama-3.1-70b-instruct"));
-Console.WriteLine("     Message: " + chatLama.Message);
-Console.WriteLine(" InputTokens: " + chatLama.NanoGPT.InputTokens);
-Console.WriteLine("OutputTokens: " + chatLama.NanoGPT.OutputTokens);
-Console.WriteLine("    NanoCost: " + chatLama.NanoGPT.NanoCost);
+Console.WriteLine("      Message: " + chatLama.Message);
+Console.WriteLine("  InputTokens: " + chatLama.NanoGPT.InputTokens);
+Console.WriteLine(" OutputTokens: " + chatLama.NanoGPT.OutputTokens);
+Console.WriteLine("         Cost: " + chatLama.NanoGPT.Cost);
+Console.WriteLine("PaymentSource: " + chatLama.NanoGPT.PaymentSource);
 Console.WriteLine("\n-------------------------------------------\n");
 await Task.Delay(250);
 
@@ -48,32 +53,30 @@ await Task.Delay(250);
 
 #region image
 
-var imageDallE = await gpt.ImageAsync(new ImageRequest("King PentoreXannaci sitting in his Castle.", "dall-e-3", 512, 512));
+var requestDallE = new ImageRequest("King PentoreXannaci sitting in his Castle.", "dall-e-3");
+requestDallE["width"] = 512;
+requestDallE["height"] = 512;
+var imageDallE = await gpt.ImageAsync(requestDallE);
 Console.WriteLine("               Created: " + imageDallE.Created);
 Console.WriteLine("      RemainingBalance: " + imageDallE.RemainingBalance);
-Console.WriteLine("              NanoCost: " + imageDallE.NanoCost);
+Console.WriteLine("                  Cost: " + imageDallE.Cost);
+Console.WriteLine("         PaymentSource: " + imageDallE.PaymentSource);
 Console.WriteLine("          Images Count: " + imageDallE.Images.Count);
 Console.WriteLine("Image[0].RevisedPrompt: " + imageDallE.Images.First().RevisedPrompt);
 // Console.WriteLine("  Image[0].ImageBase64: " + imageDallE.Images.First().ImageBase64);
 Console.WriteLine("\n-------------------------------------------\n");
 await Task.Delay(250);
 
-var imageFluxPro = await gpt.ImageAsync(new ImageRequest("King PentoreXannaci sitting in his Castle.", "flux-pro", 512, 512));
+var requestFluxPro = new ImageRequest("King PentoreXannaci sitting in his Castle.", "flux-pro");
+requestDallE["width"] = 512;
+requestDallE["height"] = 512;
+var imageFluxPro = await gpt.ImageAsync(requestFluxPro);
 Console.WriteLine("               Created: " + imageFluxPro.Created);
 Console.WriteLine("      RemainingBalance: " + imageFluxPro.RemainingBalance);
-Console.WriteLine("              NanoCost: " + imageFluxPro.NanoCost);
+Console.WriteLine("                  Cost: " + imageFluxPro.Cost);
+Console.WriteLine("         PaymentSource: " + imageDallE.PaymentSource);
 Console.WriteLine("          Images Count: " + imageFluxPro.Images.Count);
 Console.WriteLine("Image[0].RevisedPrompt: " + imageFluxPro.Images.First().RevisedPrompt);
-// Console.WriteLine("  Image[0].ImageBase64: " + imageDallE.Images.First().ImageBase64);
-Console.WriteLine("\n-------------------------------------------\n");
-await Task.Delay(250);
-
-var dreamShaper = await gpt.ImageAsync(new ImageRequest("King PentoreXannaci sitting in his Castle.", "dreamshaper_8_93211.safetensors", 512, 512, 2));
-Console.WriteLine("               Created: " + dreamShaper.Created);
-Console.WriteLine("      RemainingBalance: " + dreamShaper.RemainingBalance);
-Console.WriteLine("              NanoCost: " + dreamShaper.NanoCost);
-Console.WriteLine("          Images Count: " + dreamShaper.Images.Count);
-Console.WriteLine("Image[0].RevisedPrompt: " + dreamShaper.Images.First().RevisedPrompt);
 // Console.WriteLine("  Image[0].ImageBase64: " + imageDallE.Images.First().ImageBase64);
 Console.WriteLine("\n-------------------------------------------\n");
 await Task.Delay(250);

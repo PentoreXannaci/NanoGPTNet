@@ -11,8 +11,11 @@ public class NanoGPT
   private readonly HttpClient _client;
   public NanoGPT(string apiKey)
   {
-    _client = new HttpClient();
-    _client.BaseAddress = new Uri("https://nano-gpt.com/api/");
+    _client = new HttpClient
+    {
+      BaseAddress = new Uri("https://nano-gpt.com/api/")
+    };
+
     _client.DefaultRequestHeaders.Add("x-api-key", apiKey);
   }
 
